@@ -1,8 +1,9 @@
 <?php
+session_start();
 $servername = "localhost";
-$username = "root"; // Замените на ваше имя пользователя MySQL
-$password = ""; // Замените на ваш пароль MySQL
-$dbname = "resort_db"; // Имя вашей базы данных
+$username = "root"; 
+$password = ""; 
+$dbname = "resort_db"; 
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -17,10 +18,12 @@ $sql = "SELECT * FROM users WHERE username='$username' AND password='$password'"
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
+    $_SESSION['username'] = $username; // Сохраняем имя пользователя в сессии
     echo json_encode(array("success" => true, "message" => "Авторизация успешна."));
 } else {
     echo json_encode(array("success" => false, "message" => "Неверное имя пользователя или пароль."));
 }
+
 
 $conn->close();
 ?>

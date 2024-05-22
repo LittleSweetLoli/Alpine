@@ -1,9 +1,9 @@
 <?php
 session_start();
 $servername = "localhost";
-$username = "root"; // Замените на ваше имя пользователя MySQL
-$password = ""; // Замените на ваш пароль MySQL
-$dbname = "resort_db"; // Имя вашей базы данных
+$username = "root"; 
+$password = ""; 
+$dbname = "resort_db"; 
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
