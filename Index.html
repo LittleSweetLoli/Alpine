@@ -56,7 +56,7 @@
         <div id="loginModalContent">
             <span class="close">&times;</span>
             <h2>Авторизация</h2>
-            <form action="#">
+            <form id="loginForm" action="login.php" method="post">
                 <label for="username">Имя пользователя:</label>
                 <input type="text" id="username" name="username"><br><br>
                 <label for="password">Пароль:</label>
@@ -65,13 +65,13 @@
             </form>
         </div>
     </div>
-    
+
     <!-- Всплывающее окно для регистрации -->
     <div id="registerModal">
         <div id="registerModalContent">
             <span class="close">&times;</span>
             <h2>Регистрация</h2>
-            <form action="#">
+            <form id="registerForm" action="register.php" method="post">
                 <label for="newUsername">Имя пользователя:</label>
                 <input type="text" id="newUsername" name="newUsername"><br><br>
                 <label for="newPassword">Пароль:</label>
@@ -80,6 +80,7 @@
             </form>
         </div>
     </div>
+
 
     <script src="script.js"></script>
 </body>
