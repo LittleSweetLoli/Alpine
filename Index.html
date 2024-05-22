@@ -19,6 +19,7 @@
                 <li><a href="#weather">Погода</a></li>
             </ul>
         </nav>
+        
     </header>
     <main>
         <section id="trails">
@@ -51,37 +52,40 @@
     <footer>
         <p>&copy; 2024 Горнолыжный курорт. Все права защищены.</p>
     </footer>
+    
     <!-- Всплывающее окно для авторизации -->
-    <div id="loginModal">
-        <div id="loginModalContent">
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
             <span class="close">&times;</span>
             <h2>Авторизация</h2>
-            <form id="loginForm" action="login.php" method="post">
+            <form id="loginForm">
                 <label for="username">Имя пользователя:</label>
-                <input type="text" id="username" name="username"><br><br>
+                <input type="text" id="username" name="username" required><br><br>
                 <label for="password">Пароль:</label>
-                <input type="password" id="password" name="password"><br><br>
+                <input type="password" id="password" name="password" required><br><br>
                 <input type="submit" value="Войти">
             </form>
+            <div id="loginMessage"></div>
         </div>
     </div>
 
     <!-- Всплывающее окно для регистрации -->
-    <div id="registerModal">
-        <div id="registerModalContent">
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
             <span class="close">&times;</span>
             <h2>Регистрация</h2>
-            <form id="registerForm" action="register.php" method="post">
+            <form id="registerForm">
                 <label for="newUsername">Имя пользователя:</label>
-                <input type="text" id="newUsername" name="newUsername"><br><br>
+                <input type="text" id="newUsername" name="newUsername" required><br><br>
                 <label for="newPassword">Пароль:</label>
-                <input type="password" id="newPassword" name="newPassword"><br><br>
+                <input type="password" id="newPassword" name="newPassword" required><br><br>
                 <input type="submit" value="Зарегистрироваться">
             </form>
+            <div id="registerMessage"></div>
         </div>
     </div>
 
-
+    <!-- Подключение файла JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
