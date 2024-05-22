@@ -53,7 +53,7 @@ $conn->close();
             <?php
             if ($result_bookings->num_rows > 0) {
                 while($row_booking = $result_bookings->fetch_assoc()) {
-                    echo "<p>Гора: " . htmlspecialchars($row_booking["mountain"]) . " - Дата прибытия: " . htmlspecialchars($row_booking["arrival_date"]) . "</p>";
+                    echo "<p>Гора: " . htmlspecialchars($row_booking["mountain"]) . " - Дата заезда: " . htmlspecialchars($row_booking["arrival_date"]) . "</p>";
                 }
             } else {
                 echo "<p>У вас пока нет забронированных восхождений.</p>";

@@ -1,3 +1,5 @@
+<?php
+session_start();
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -13,6 +15,8 @@
             <ul>
                 <li><a href="index.html">Главная</a></li>
                 <li><a href="booking.html">Бронирование</a></li>
+                
+                
             </ul>
         </nav>
         <button id="logoutBtn">Выйти</button>
@@ -21,6 +25,10 @@
         <section id="profile">
             <h2>Добро пожаловать, <span id="usernameDisplay"></span>!</h2>
             <p>Здесь вы можете управлять своим профилем.</p>
+        </section>
+        <section id="bookings">
+            <h3>Ваши бронирования:</h3>
+            <!-- Здесь будут отображаться бронирования пользователя -->
         </section>
     </main>
     <footer>
