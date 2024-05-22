@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бронирование восхождения на гору</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Бронирование восхождения на гору</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="booking.html">Бронирование</a></li>
+            </ul>
+        </nav>
+        <button id="profileBtn" style="display:none;">Профиль</button>
+    </header>
+    <main>
+        <section id="bookingForm">
+            <h2>Забронировать восхождение на гору</h2>
+            <form action="booking.php" method="post">
+                <label for="mountain">Выберите гору:</label>
+                <select id="mountain" name="mountain" required>
+                    <option value="everest">Эверест</option>
+                    <option value="kilimanjaro">Килиманджаро</option>
+                    <option value="matterhorn">Маттерхорн</option>
+                    <!-- Добавьте другие горы по вашему выбору -->
+                </select><br><br>
+                <label for="arrival_date">Дата заезда:</label>
+                <input type="date" id="arrival_date" name="arrival_date" required><br>
+                <input type="submit" value="Забронировать">
+            </form>
+            <div id="bookingMessage"></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Горнолыжный курорт. Все права защищены.</p>
+    </footer>
+
+    <!-- Подключение файла JavaScript -->
+    <script src="booking.js"></script>
+</body>
+</html>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Подключение к базе данных
 $servername = "localhost";
 $username = "root";
@@ -15,16 +16,17 @@ if ($conn->connect_error) {
 
 // Обработка данных из формы и сохранение в базе данных
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = $_POST["name"];
-    $email = $_POST["email"];
+    $username = $_SESSION['username'];
+    $mountain = $_POST["mountain"];
     $arrival_date = $_POST["arrival_date"];
-    $departure_date = $_POST["departure_date"];
 
-    $sql = "INSERT INTO bookings (name, email, arrival_date, departure_date)
-            VALUES ('$name', '$email', '$arrival_date', '$departure_date')";
+    $sql = "INSERT INTO bookings (username, mountain, arrival_date)
+            VALUES ('$username','$mountain','$arrival_date')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "Бронирование успешно создано.";
+        // Перенаправление на страницу оплаты и договора
+        header("Location: payment.php");
+        exit();
     } else {
         echo "Ошибка: " . $sql . "<br>" . $conn->error;
     }
