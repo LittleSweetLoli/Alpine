@@ -1,9 +1,25 @@
 // Найти элементы
 var loginBtn = document.getElementById("loginBtn");
 var registerBtn = document.getElementById("registerBtn");
+var profileBtn = document.getElementById("profileBtn");
 var loginModal = document.getElementById("loginModal");
 var registerModal = document.getElementById("registerModal");
 var closeButtons = document.getElementsByClassName("close");
+
+// Проверка, авторизован ли пользователь
+fetch('get_user_info.php')
+.then(response => response.json())
+.then(data => {
+    if (data.logged_in) {
+        loginBtn.style.display = "none";
+        registerBtn.style.display = "none";
+        profileBtn.style.display = "inline-block";
+    } else {
+        loginBtn.style.display = "inline-block";
+        registerBtn.style.display = "inline-block";
+        profileBtn.style.display = "none";
+    }
+});
 
 // Открытие модального окна авторизации при нажатии на кнопку "Войти"
 loginBtn.onclick = function() {
@@ -34,9 +50,8 @@ window.onclick = function(event) {
 
 // Обработчик формы авторизации
 var loginForm = document.getElementById("loginForm");
-loginForm.addEventListener("submit", function(event) {
+loginForm.onsubmit = function(event) {
     event.preventDefault();
-
     var formData = new FormData(loginForm);
 
     fetch('login.php', {
@@ -45,44 +60,41 @@ loginForm.addEventListener("submit", function(event) {
     })
     .then(response => response.json())
     .then(data => {
-        var loginMessage = document.getElementById("loginMessage");
         if (data.success) {
-            loginMessage.textContent = "Авторизация успешна!";
-            loginMessage.style.color = "green";
-            // Дополнительные действия, например, редирект на другую страницу
+            loginModal.style.display = "none";
+            loginBtn.style.display = "none";
+            registerBtn.style.display = "none";
+            profileBtn.style.display = "inline-block";
         } else {
-            loginMessage.textContent = data.message;
-            loginMessage.style.color = "red";
+            document.getElementById("loginMessage").textContent = data.message;
         }
-    })
-    .catch(error => {
-        console.error('Ошибка:', error);
     });
-});
+}
 
 // Обработчик формы регистрации
 var registerForm = document.getElementById("registerForm");
-registerForm.addEventListener("submit", function(event) {
+registerForm.onsubmit = function(event) {
     event.preventDefault();
-
     var formData = new FormData(registerForm);
 
-    fetch('registration.php', {
+    fetch("registration.php", {
         method: 'POST',
         body: formData
     })
     .then(response => response.json())
     .then(data => {
-        var registerMessage = document.getElementById("registerMessage");
         if (data.success) {
-            registerMessage.textContent = "Регистрация успешна!";
-            registerMessage.style.color = "green";
+            registerModal.style.display = "none";
+            loginBtn.style.display = "none";
+            registerBtn.style.display = "none";
+            profileBtn.style.display = "inline-block";
         } else {
-            registerMessage.textContent = data.message;
-            registerMessage.style.color = "red";
+            document.getElementById("registerMessage").textContent = data.message;
         }
-    })
-    .catch(error => {
-        console.error('Ошибка:', error);
     });
-});
+}
+
+// Переход в профиль при нажатии на кнопку "Профиль"
+profileBtn.onclick = function() {
+    window.location.href = "profile.html";
+}

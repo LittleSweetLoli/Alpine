@@ -1,4 +1,5 @@
 <?php
+session_start();
 $servername = "localhost";
 $username = "root"; // Замените на ваше имя пользователя MySQL
 $password = ""; // Замените на ваш пароль MySQL
