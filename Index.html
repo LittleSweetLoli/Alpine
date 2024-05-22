@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Горнолыжный курорт</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <button id="loginBtn">Войти</button>
+    <button id="registerBtn">Регистрация</button>
+    <header>
+        <h1>Добро пожаловать на горнолыжный курорт</h1>
+        <nav>
+            <ul>
+                <li><a href="#trails">Трассы</a></li>
+                <li><a href="#accommodation">Проживание</a></li>
+                <li><a href="#booking">Бронирование</a></li>
+                <li><a href="#weather">Погода</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="trails">
+            <h2>Информация о трассах</h2>
+            <p>Здесь может быть описание трасс, подъемников и условий аренды оборудования.</p>
+        </section>
+        <section id="accommodation">
+            <h2>Проживание</h2>
+            <p>Информация о гостиницах, коттеджах и других вариантах проживания.</p>
+        </section>
+        <section id="booking">
+            <h2>Онлайн-бронирование</h2>
+            <form action="booking.php" method="post">
+                <label for="name">Имя:</label>
+                <input type="text" id="name" name="name" required><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br>
+                <label for="arrival_date">Дата заезда:</label>
+                <input type="date" id="arrival_date" name="arrival_date" required><br>
+                <label for="departure_date">Дата выезда:</label>
+                <input type="date" id="departure_date" name="departure_date" required><br>
+                <input type="submit" value="Забронировать">
+            </form>
+        </section>
+        <section id="weather">
+            <h2>Погода</h2>
+            <p>Информация о погодных условиях и прогноз погоды на курорте.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Горнолыжный курорт. Все права защищены.</p>
+    </footer>
+    <!-- Всплывающее окно для авторизации -->
+    <div id="loginModal">
+        <div id="loginModalContent">
+            <span class="close">&times;</span>
+            <h2>Авторизация</h2>
+            <form action="#">
+                <label for="username">Имя пользователя:</label>
+                <input type="text" id="username" name="username"><br><br>
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password"><br><br>
+                <input type="submit" value="Войти">
+            </form>
+        </div>
+    </div>
+    
+    <!-- Всплывающее окно для регистрации -->
+    <div id="registerModal">
+        <div id="registerModalContent">
+            <span class="close">&times;</span>
+            <h2>Регистрация</h2>
+            <form action="#">
+                <label for="newUsername">Имя пользователя:</label>
+                <input type="text" id="newUsername" name="newUsername"><br><br>
+                <label for="newPassword">Пароль:</label>
+                <input type="password" id="newPassword" name="newPassword"><br><br>
+                <input type="submit" value="Зарегистрироваться">
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
