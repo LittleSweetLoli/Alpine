@@ -9,7 +9,7 @@ body {
 header {
     background-color: #333;
     color: #fff;
-    padding: 10px 0;
+    padding: 40px 0;
     text-align: center;
 }
 
@@ -149,4 +149,36 @@ form input[type="submit"] {
 
 form input[type="submit"]:hover {
     background-color: #555;
+}
+
+/* Стили для блоков с изображениями и описаниями */
+#highlights {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.highlight-block {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.highlight-block img {
+    width: 100%;
+    height: auto;
+}
+
+.highlight-block h3 {
+    margin: 10px 0;
+}
+
+.highlight-block p {
+    padding: 0 10px 10px;
 }
