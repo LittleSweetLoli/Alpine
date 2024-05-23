@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (data.bookings.length > 0) {
                 data.bookings.forEach(booking => {
                     const bookingItem = document.createElement("p");
-                    bookingItem.textContent = `Гора: ${booking.mountain} - Дата прибытия: ${booking.arrival_date}`;
+                    bookingItem.textContent = `Гора: ${booking.mountain} - Дата прибытия: ${booking.arrival_date} - Дата тренировки: ${booking.train_date}`;
                     bookingsSection.appendChild(bookingItem);
                 });
             } else {

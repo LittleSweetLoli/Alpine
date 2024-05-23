@@ -19,9 +19,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_SESSION['username'];
     $mountain = $_POST["mountain"];
     $arrival_date = $_POST["arrival_date"];
+    $train_date = $_POST["train_date"];
 
-    $sql = "INSERT INTO bookings (username, mountain, arrival_date)
-            VALUES ('$username','$mountain','$arrival_date')";
+    $sql = "INSERT INTO bookings (username, mountain, arrival_date, train_date)
+            VALUES ('$username','$mountain','$arrival_date', '$train_date')";
 
     if ($conn->query($sql) === TRUE) {
         // Перенаправление на страницу оплаты и договора

@@ -19,7 +19,7 @@ if (isset($_SESSION['username'])) {
     $response['logged_in'] = true;
     $response['username'] = $user;
 
-    $sql_bookings = "SELECT mountain, arrival_date FROM bookings WHERE username = ?";
+    $sql_bookings = "SELECT mountain, arrival_date, train_date FROM bookings WHERE username = ?";
     $stmt = $conn->prepare($sql_bookings);
     $stmt->bind_param("s", $user);
     $stmt->execute();

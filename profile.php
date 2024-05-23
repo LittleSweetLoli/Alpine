@@ -9,7 +9,7 @@ if (!isset($_SESSION['username'])) {
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "resort_db";
+$dbname = "resort_db"; // Имя вашей базы данных
 
 // Создание соединения
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -23,7 +23,7 @@ if ($conn->connect_error) {
 $username = $_SESSION['username'];
 
 // Получение информации о бронированиях пользователя из базы данных
-$sql_bookings = "SELECT * FROM bookings WHERE username = '$username'";
+$sql_bookings = "SELECT mountain, arrival_date, train_date FROM bookings WHERE username = '$username'";
 $result_bookings = $conn->query($sql_bookings);
 
 $conn->close();
@@ -53,7 +53,8 @@ $conn->close();
             <?php
             if ($result_bookings->num_rows > 0) {
                 while($row_booking = $result_bookings->fetch_assoc()) {
-                    echo "<p>Гора: " . htmlspecialchars($row_booking["mountain"]) . " - Дата заезда: " . htmlspecialchars($row_booking["arrival_date"]) . "</p>";
+                    echo "<p>Гора: " . htmlspecialchars($row_booking["mountain"]) . " - Дата заезда: " . htmlspecialchars($row_booking["arrival_date"]) . " - Дата тренировки: " . htmlspecialchars($row_booking["train_date"]) . "</p>";
+
                 }
             } else {
                 echo "<p>У вас пока нет забронированных восхождений.</p>";
@@ -62,7 +63,7 @@ $conn->close();
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 Горнолыжный курорт. Все права защищены.</p>
+        <p>&copy; 2024 Альпинистский клуб Alpine. Все права защищены.</p>
     </footer>
 </body>
 </html>

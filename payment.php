@@ -52,7 +52,8 @@
 
                 <!-- Чекбокс согласия с условиями договора -->
                 <label for="agree" class="<?php if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['agree'])) echo 'hidden'; ?>">
-                    <input type="checkbox" id="agree" name="agree" required>
+                    <a href="dogovor.html">Прочитать договор</a>
+                <input type="checkbox" id="agree" name="agree" required>
                     Я соглашаюсь со всеми условиями договора.
                 </label>
 

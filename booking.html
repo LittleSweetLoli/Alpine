@@ -32,6 +32,9 @@ session_start();
                 </select><br><br>
                 <label for="arrival_date">Дата заезда:</label>
                 <input type="date" id="arrival_date" name="arrival_date" required><br>
+                <h2>Для данного восхождения необходимо пройти обучение!</h2>
+                <label for="train_date">Дата обучения:</label>
+                <input type="date" id="train_date" name="train_date" required max="arrival_date"><br>
                 <input type="submit" value="Забронировать">
             </form>
             <div id="bookingMessage"></div>
@@ -40,8 +43,22 @@ session_start();
     <footer>
         <p>&copy; 2024 Альпинистский клуб Alpine. Все права защищены.</p>
     </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var arrivalDateInput = document.getElementById("arrival_date");
+            var trainDateInput = document.getElementById("train_date");
 
-    <!-- Подключение файла JavaScript -->
-    <script src="booking.js"></script>
+            arrivalDateInput.addEventListener("change", function() {
+                var arrivalDate = new Date(arrivalDateInput.value);
+                var maxTrainDate = new Date(arrivalDate);
+                maxTrainDate.setDate(arrivalDate.getDate() - 1); // Инструктаж не позднее дня прибытия
+                var minTrainDate = new Date(arrivalDate);
+                minTrainDate.setDate(arrivalDate.getDate() - 7); // Инструктаж максимум за неделю до прибытия
+
+                trainDateInput.max = maxTrainDate.toISOString().split('T')[0];
+                trainDateInput.min = minTrainDate.toISOString().split('T')[0];
+            });
+        });
+    </script>
 </body>
 </html>
